@@ -10,21 +10,21 @@ suite('Unit Tests', function () {
     });
     // #2
     test('#isDefined, #isUndefined', function () {
-      assert.isNull(null, 'null is not undefined');
+      assert.isDefined(null, 'null is not undefined');
       assert.isUndefined(undefined, 'undefined IS undefined');
       assert.isDefined('hello', 'A string is not undefined');
     });
     // #3
     test('#isOk, #isNotOk', function () {
-      assert.isNull(null, 'null is falsey');
-      assert.isNotNull("I'm truthy", 'A string is truthy');
-      assert.isNotNull(true, 'true is truthy');
+      assert.isNotOk(null, 'null is falsey');
+      assert.isOk("I'm truthy", 'A string is truthy');
+      assert.isOk(true, 'true is truthy');
     });
     // #4
     test('#isTrue, #isNotTrue', function () {
-      assert.isNotNull(true, 'true is true');
-      assert.isNotNull(!!'double negation', 'Double negation of a truthy value is true');
-      assert.isNotNull({ value: 'truthy' }, 'Objects are truthy, but are not boolean values');
+      assert.isTrue(true, 'true is true');
+      assert.isTrue(!!'double negation', 'Double negation of a truthy value is true');
+      assert.isNotTrue({ value: 'truthy' }, 'Objects are truthy, but are not boolean values');
     });
   });
 
@@ -33,10 +33,10 @@ suite('Unit Tests', function () {
   suite('Equality', function () {
     // #5
     test('#equal, #notEqual', function () {
-      assert.isNotNull(12, '12', 'Numbers are coerced into strings with ==');
-      assert.isNotNull({ value: 1 }, { value: 1 }, '== compares object references');
-      assert.isNotNull(6 * '2', '12');
-      assert.isNotNull(6 + '2', '12');
+      assert.equal(12, '12', 'Numbers are coerced into strings with ==');
+      assert.notEqual({ value: 1 }, { value: 1 }, '== compares object references');
+      assert.equal(6 * '2', '12');
+      assert.notEqual(6 + '2', '12');
     });
     // #6
     test('#strictEqual, #notStrictEqual', function () {
@@ -75,8 +75,8 @@ suite('Unit Tests', function () {
     });
     // #10
     test('#approximately', function () {
-      assert.approximately(weirdNumbers(0.5), 1.4, 1);
-      assert.approximately(weirdNumbers(0.2), 0.9, 1);
+      assert.approximately(weirdNumbers(0.5), 1, 0.5);
+      assert.approximately(weirdNumbers(0.2), 1, 0.8);
     });
   });
 
