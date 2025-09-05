@@ -70,7 +70,7 @@ suite('Functional Tests', function () {
 });
 
 const Browser = require('zombie');
-Browser.site = "https://aqui-va-tu-sitio.glitch.me";
+Browser.site = "https://freebootcampfc.onrender.com";
 
 suite('Functional Tests with Zombie.js', function () {
     this.timeout(5000);
